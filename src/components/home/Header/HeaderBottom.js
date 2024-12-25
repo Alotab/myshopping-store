@@ -13,15 +13,23 @@ const HeaderBottom = () => {
   const [showUser, setShowUser] = useState(false);
   const navigate = useNavigate();
   const ref = useRef();
+
   useEffect(() => {
-    document.body.addEventListener("click", (e) => {
-      if (ref.current.contains(e.target)) {
-        setShow(true);
-      } else {
-        setShow(false);
-      }
-    });
-  }, [show, ref]);
+    const handleClick = (e) => {
+        if (ref.current && ref.current.contains(e.target)) {
+            setShow(true);
+        } else {
+            setShow(false);
+        }
+    };
+    document.body.addEventListener("click", handleClick);
+
+    // Clean up the event listener on component unmount
+    return () => {
+        document.body.removeEventListener("click", handleClick);
+    };
+}, [show, ref]);
+
 
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]);
