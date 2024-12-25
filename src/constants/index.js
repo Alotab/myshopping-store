@@ -42,6 +42,7 @@ export const navBarList = [
   },
 ];
 // =================== NavBarList End here ======================
+
 // =================== Special Offer data Start here ============
 export const SplOfferData = [
   {
@@ -83,8 +84,8 @@ export const SplOfferData = [
 ];
 // =================== Special Offer data End here ==============
 
-// =================== PaginationItems Start here ===============
 
+// =================== PaginationItems Start here ===============
 export const paginationItems = [
   {
     _id: 1001,
